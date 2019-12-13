@@ -12,7 +12,8 @@ STATES = {3: 'off',
           6: 'saved'}
 ADJ = {'index': 3,
        'state': 7,
-       'name': 30}
+       'name': 30,
+       'ipaddress': 15}
 
 
 def print_vm_switch(switch_json: dict):
@@ -87,6 +88,7 @@ def print_list_vms(vms_json: dict, filter_vms: str):
     print("{} {} {} {}".format("Index".rjust(ADJ['index']),
                                "State".ljust(ADJ['state']),
                                "Name".ljust(ADJ['name']),
+                               "IPAddress".ljust(ADJ['ipaddress']),
                                "Uptime"))
 
     if filter_vms:

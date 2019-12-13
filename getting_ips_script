@@ -1,0 +1,2 @@
+Get-VM -ExpandProperty NetworkAdapters | Select IPAddresses | sort Name | ConvertTo-Json
+''

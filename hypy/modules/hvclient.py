@@ -64,8 +64,12 @@ def get_vm(vm_name: str) -> Response:
     """
     if not vm_name:
         vm_name = '*'
-    ps_script = 'Get-VM -Name "{}" | Select Name,Id,State,Uptime,ParentSnapshotName | sort Name | \
-ConvertTo-Json'.format(vm_name)
+    ps_script = (
+        'Get-VM -Name "{}" |'
+        'Select -ExpandProperty NetworkAdapters,Name,Id,State,Uptime,'
+        'ParentSnapshotName | sort Name | ConvertTo-Json'.format(vm_name)
+    )
+
     rs = run_ps(ps_script)
 
     return rs
