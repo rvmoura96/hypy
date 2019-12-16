@@ -18,8 +18,7 @@ current_cache = """[
             "TotalMinutes": 8712.749183333333,
             "TotalSeconds": 522764.951
         },
-        "ParentSnapshotName": null,
-        
+        "ParentSnapshotName": null
     },
     {
         "Name": "vm 03",

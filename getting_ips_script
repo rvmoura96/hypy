@@ -1,2 +1,15 @@
-Get-VM -ExpandProperty NetworkAdapters | Select IPAddresses | sort Name | ConvertTo-Json
-''
+Get-VM |Select -ExpandProperty NetworkAdapters | Select IPAddresses | sort Name | ConvertTo-Json
+
+
+
+
+
+$Result = ForEach($VM in (Get-VM | sort Name)){
+    [PSCustomObject]@{
+        VMNAME = $VM.VMNAME
+        ID = $VM.Id
+        State = $VM.State
+        IPAddres = ($VM | Get-VMNetworkAdapter).IPAddresses
+        Uptime = $VM.Uptime
+    }
+}
